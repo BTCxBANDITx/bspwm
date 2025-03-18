@@ -1,0 +1,113 @@
+#####################################
+#                                   #
+#  @author      : 00xWolf           #
+#    GitHub    : @mmsaeed509       #
+#    Developer : Mahmoud Mohamed   #
+#  﫥  Copyright : Exodia OS         #
+#                                   #
+#####################################
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/floorp]
+
+type = custom/text
+
+content = ""
+content-font = 5
+content-foreground = ${color.APPS}
+content-padding = 1
+
+click-left = floorp --class="floorp" %u
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/spotify-launcher]
+
+type = custom/text
+
+content = ""
+content-font = 5
+content-foreground = ${color.APPS}
+content-padding = 1
+
+click-left = Spotify
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/Virtual]
+type = custom/text
+
+content = ""
+content-font = 5
+content-foreground = ${color.APPS}
+content-padding = 1
+
+click-left = virt-manager
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/Thunar]
+
+type = custom/text
+
+content = "󰪶"
+content-font = 5
+content-foreground = ${color.APPS}
+content-padding = 1
+
+click-left = Thunar
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/Ranger]
+
+type = custom/text
+
+content = ""
+content-font = 5
+content-foreground = ${color.APPS}
+content-padding = 1
+
+click-left = wezterm ranger
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/nvim]
+
+type = custom/text
+
+content = ""
+content-font = 5
+content-foreground = ${color.APPS}
+content-padding = 1
+
+click-left = terminology nvim
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/PowerShell]
+
+type = custom/text
+
+content = ""
+content-font = 5
+content-foreground = ${color.APPS}
+content-padding = 1
+
+click-left = bsp-powershell
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/Geany]
+
+type = custom/text
+
+content = "󰼙"
+content-font = 5
+content-foreground = ${color.APPS}
+content-padding = 1
+
+click-left = geany
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_

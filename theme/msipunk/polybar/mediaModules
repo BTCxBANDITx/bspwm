@@ -1,0 +1,202 @@
+#####################################
+#                                   #
+#  @author      : 00xWolf           #
+#    GitHub    : @mmsaeed509       #
+#    Developer : Mahmoud Mohamed   #
+#  﫥  Copyright : Exodia OS         #
+#                                   #
+#####################################
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/volume]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+use-ui-max = false
+interval = 5
+
+format-volume = <ramp-volume><label-volume>
+
+format-muted = <label-muted>
+format-muted-prefix = " 婢"
+format-muted-prefix-font = 3
+format-muted-prefix-foreground = #ff0000
+format-muted-prefix-background = ${color.GREEN}
+
+label-volume = %percentage%%
+label-volume-foreground = ${color.BACKGROUND}
+label-volume-background = ${color.GREEN}
+label-volume-font = 11
+
+label-muted = " Mute"
+label-muted-foreground = #ff0000
+label-muted-background = ${color.GREEN}
+
+ramp-volume-0 = " 奄 "
+ramp-volume-1 = " 奄 "
+ramp-volume-2 = " 奄 "
+ramp-volume-3 = " 奔 "
+ramp-volume-4 = " 奔 "
+ramp-volume-5 = " 奔 "
+ramp-volume-6 = " 墳 "
+ramp-volume-7 = " 墳 "
+ramp-volume-8 = " 墳 "
+ramp-volume-9 = " 墳 "
+ramp-volume-font = 3
+ramp-volume-foreground = ${color.BACKGROUND}
+ramp-volume-background = ${color.GREEN}
+
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/mpd]
+type = internal/mpd
+interval = 2
+
+; format-online = <label-song> <icon-prev> <toggle> <icon-next>
+format-online = <icon-prev> <toggle> <icon-next>
+format-online-prefix = "  "
+format-online-foreground = #0ABDC6
+format-playing = ${self.format-online}
+format-paused = <icon-prev> <toggle> <icon-next>
+
+format-offline = <label-offline>
+format-offline-prefix = "  "
+format-offline-prefix-foreground = #0ABDC6
+
+label-offline = "Offline "
+format-offline-foreground = #0ABDC6
+
+; label-song =  "%title% | %artist%"
+label-song =  "%title% "
+label-song-maxlen = 60
+label-song-ellipsis = true
+
+icon-play = ""
+icon-play-font = 2
+icon-play-foreground = #0ABDC6
+icon-pause = ""
+icon-pause-font = 2
+icon-pause-foreground = #0ABDC6
+icon-stop = " "
+icon-stop-foreground = #0ABDC6
+icon-prev = "玲"
+icon-prev-font = 2
+icon-prev-foreground = #0ABDC6
+icon-next = "怜 "
+icon-next-font = 2
+icon-next-foreground = #0ABDC6
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/song]
+type = internal/mpd
+
+interval = 2
+
+format-online = <label-song>
+format-online-foreground = #0ABDC6
+
+format-playing = ${self.format-online}
+format-paused = ${self.format-online}
+format-stopped = ${self.format-online}
+
+label-song =  "[ %title% ]"
+; label-song =  "%title% | %artist%"
+
+label-song-foreground = #0ABDC6
+label-song-maxlen = 60
+label-song-ellipsis = true
+label-song-font = 11
+
+icon-repeat = ""
+icon-repeat-foreground = #0ABDC6
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/song-icon]
+
+type = custom/text
+
+content = ""
+content-font = 5
+content-foreground = #d40261
+content-padding = 0
+click-left = music --albumArtCover
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/info-cava]
+type = custom/script
+exec =  ~/.config/bspwm/themes/MSI\\ Punk/polybar/scripts/cava -c average -f 60
+
+format = <label>
+label = %output%
+format-foreground = ${color.BACKGROUND}
+format-background = ${color.GREEN}
+tail = true
+label-font = 3
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/pulse-mic]
+
+type = custom/script
+exec = ~/.config/bspwm/themes/MSI\\ Punk/polybar/scripts/pulse-mic
+tail = true
+click-left  = ~/.config/bspwm/themes/MSI\\ Punk/polybar/scripts/pulse-mic --toggle &
+scroll-up   = ~/.config/bspwm/themes/MSI\\ Punk/polybar/scripts/pulse-mic --increase &
+scroll-down = ~/.config/bspwm/themes/MSI\\ Punk/polybar/scripts/pulse-mic --decrease &
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/spotify]
+type = custom/script
+tail = true
+interval = 1
+
+; prefix symbol is shown before the text
+format-prefix = "   " 
+format = <label>
+format-prefix-font = 5
+label-font = 11
+
+exec = ~/.config/bspwm/themes/MSI\\ Punk/polybar/scripts/get_spotify_status.sh
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/spotify-prev]
+type = custom/script
+
+exec = echo " 󰙤 "
+label-padding = 1
+
+format = <label>
+click-left = playerctl previous -p spotify
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/spotify-play-pause]
+type = custom/ipc
+
+hook-0 = echo "  "
+hook-1 = echo " 󰏨 "
+initial = 1
+label-padding = 1
+
+click-left = playerctl play-pause -p spotify
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/spotify-next]
+type = custom/script
+
+exec = echo " 󰙢 "
+label-padding = 1
+
+format = <label>
+click-left = playerctl next -p spotify
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
