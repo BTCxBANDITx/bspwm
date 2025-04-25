@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+DIR="$HOME/.config/bspwm"
+
+rofi_command="rofi -theme $DIR/rofi/themes/asroot.rasi"
+
+# Apps #
+terminal=" Ghostty"
+files=" Thunar"
+editor=" Geany"
+tfm=" Yazi"
+vim=" Neovim"
+backup="󰁯 Timeshift"
+storage="󱛟 Gparted"
+
+
+# Variable passed to rofi #
+options="$terminal\n$files\n$editor\n$tfm\n$vim\n$backup\n$storage"
+
+# Functions #
+chosen="$(echo -e "$options" | $rofi_command -p "Run Apps With Root Privileges" -dmenu -selected-row 0)"
+case $chosen in
+    $terminal)
+        apps_as_root ghostty
+        ;;
+    $files)
+        apps_as_root thunar
+        ;;
+    $editor)
+        apps_as_root geany
+        ;;
+    $tfm)
+        apps_as_root 'wezterm start --yazi'
+        ;;
+    $vim)
+        apps_as_root 'wezterm start --nvim'
+        ;;
+    $backup)
+        apps_as_root timeshift
+        ;;
+    $storage)
+        apps_as_root gparted
+        ;;
+
+esac
